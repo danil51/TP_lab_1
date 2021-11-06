@@ -143,16 +143,24 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Base.h" />
+    <ClInclude Include="fabric.h" />
     <ClInclude Include="graphics.h" />
     <ClInclude Include="helper.h" />
-    <ClInclude Include="Rectangle.h" />
+    <ClInclude Include="Keeper.h" />
+    <ClInclude Include="Rect.h" />
     <ClInclude Include="Sphere.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Base.cpp" />
+    <ClCompile Include="fabric.cpp" />
     <ClCompile Include="helper.cpp" />
-    <ClCompile Include="Rectangle.cpp" />
+    <ClCompile Include="Keeper.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Rect.cpp" />
     <ClCompile Include="Sphere.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="keeper.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

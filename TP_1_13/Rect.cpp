@@ -1,24 +1,24 @@
-#include "Rectangle.h"
+#include "Rect.h"
 
-Rectangle::Rectangle() : Base("Прямоугольник"), lenght(0), width(0), square(0)
+Rect::Rect() : Base("Прямоугольник"), lenght(0), width(0), square(0)
 {
 	cout << "Вызван конструктор Rectangle" << endl;
 }
 
-Rectangle::Rectangle(double lenght, double width) :
+Rect::Rect(double lenght, double width) :
 	Base("Прямоугольник"), lenght(lenght), width(width)
 {
 	calcylateSquare();
 	cout << "Вызван конструктор Rectangle" << endl;
 }
 
-Rectangle::Rectangle(const Rectangle& rectangle) :
-	Base(rectangle), lenght(rectangle.lenght), width(rectangle.width), square(rectangle.square)
+Rect::Rect(const Rect& rect) :
+	Base(rect), lenght(rect.lenght), width(rect.width), square(rect.square)
 {
 	cout << "Вызван конструктор копирования Rectangle" << endl;
 }
 //поочередно получаем от пользователя поля
-void Rectangle::inputFromConsole()
+void Rect::inputFromConsole()
 {
 	cout << "Введите длину: ";
 	lenght = safeInput(1.0, (double)INT32_MAX);
@@ -27,7 +27,7 @@ void Rectangle::inputFromConsole()
 	calcylateSquare();
 }
 //поочередно вводим поля из файла, если не смогли прочитать сроку, занчит файл закончился раньше времени
-void Rectangle::inputFromFile(std::ifstream& file, std::string& tmpS)
+void Rect::inputFromFile(std::ifstream& file, std::string& tmpS)
 {
 	string err = "Файл не может быть корректно прочитан";
 	if (!getline(file, tmpS))
@@ -36,29 +36,30 @@ void Rectangle::inputFromFile(std::ifstream& file, std::string& tmpS)
 	if (!getline(file, tmpS))
 		throw err;
 	width = (checkStringToDouble(tmpS) ? stod(tmpS) : 0);
-	if (!getline(file, tmpS))
-		throw err;
 	calcylateSquare();
 }
 
-void Rectangle::printToConsole()
+void Rect::printToConsole()
 {
 	Base::printToConsole();
 	cout << "Длина: " << lenght << endl;
 	cout << "Ширина: " << width << endl;
 	cout << "Площадь: " << square << endl;
-	cleardevice();
-	rectangle(100, 100, 100 + lenght, 100 + width);
 }
 
-void Rectangle::printToFile(ostream& out)
+void Rect::printToFile(ostream& out)
 {
 	Base::printToFile(out);
 	out << lenght << endl;
 	out << width << endl;
 }
 
-void Rectangle::change()
+void Rect::print() {
+	cleardevice();
+	rectangle(100, 100, 100 + lenght, 100 + width);
+}
+
+void Rect::change()
 {
 	cout << "Введите новую длину: ";
 	lenght = safeInput(1.0, (double)INT32_MAX);
@@ -67,4 +68,4 @@ void Rectangle::change()
 	calcylateSquare();
 }
 
-void Rectangle::calcylateSquare() { square = lenght * width; }
+void Rect::calcylateSquare() { square = lenght * width; }

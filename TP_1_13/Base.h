@@ -19,6 +19,7 @@ public:
 	virtual void inputFromConsole() = 0; //абстрактрая функция, требует реализацию в наследнике
 	virtual void inputFromFile(std::ifstream& file, std::string& tmpS) = 0;
 	virtual void printToConsole();
+	virtual void print() = 0;
 	virtual void printToFile(ostream& out);
 	virtual void change() = 0;
 	virtual double getSquareOrVolume() = 0;

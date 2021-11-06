@@ -16,6 +16,7 @@ public:
 	virtual void inputFromConsole();
 	virtual void inputFromFile(std::ifstream& file, std::string& tmpS);
 	virtual void printToConsole();
+	virtual void print();
 	virtual void printToFile(ostream& out);
 	virtual void change();
 

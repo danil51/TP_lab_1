@@ -39,14 +39,17 @@ void Sphere::printToConsole()
 	Base::printToConsole();
 	cout << "Радиус: " << radius << endl;
 	cout << "Объем: " << volume << endl;
-	cleardevice();
-	circle(100, 100, radius);
 }
 
 void Sphere::printToFile(ostream& out)
 {
 	Base::printToFile(out);
 	out << radius << endl;
+}
+
+void Sphere::print() {
+	cleardevice();
+	circle(100, 100, radius);
 }
 
 void Sphere::change()
